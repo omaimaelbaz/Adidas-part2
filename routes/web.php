@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CategoriesController;
 
 
 /*
@@ -18,6 +18,25 @@ use App\Http\Controllers\CategoryController;
 Route::get('/', function () {
     return view('index');
 });
+
+
+// category table
+
+Route::get('/category',[CategoriesController::class,'categoryView']);
+
+// add category
+Route::get('/addcategory',[CategoriesController::class,'addformeCategory']);
+Route::post('/insertcategory',[CategoriesController::class,'insertCategory']);
+// delete category
+Route::get('/supcategory/{id}',[CategoriesController::class,'deleteCategory']);
+// update category
+Route::get('/updatecategory/{id}',[CategoriesController::class,'updatepage']);
+Route::post('/update/{id}',[CategoriesController::class,'updatecategory']);
+
+
+
+
+
 
 
 
