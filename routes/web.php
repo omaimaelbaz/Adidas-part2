@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\AuthentificationController;
 
 
 /*
@@ -49,6 +50,14 @@ Route::get('/deleteproduct/{id}',[ProductController::class,'deleteproduct']);
 
 Route::get('/updateproduct/{id}',[ProductController::class,'updatepage']);
 Route::post('/updateall/{id}',[ProductController::class,'update']);
+
+// auth
+
+Route::get('/signin',[AuthentificationController::class,'signIn']);
+Route::get('/signup',[AuthentificationController::class,'signup']);
+
+
+
 
 
 
