@@ -29,7 +29,8 @@
             <Td>{{$product->description}}</Td>
             <Td>{{$product->price}}</Td>
             <Td>{{$product->category_id}}</Td>
-            <Td>{{$product->Img_path}}</Td>
+            <Td><img src="upload/{{$product->Img_path}}" alt="" width="100px"></Td>
+
             <Td>{{$product->Quantity}}</Td>
             <td>
                 <a href="/updateproduct/{{$product->id}}" class="btn btn-secondary">Update</a>

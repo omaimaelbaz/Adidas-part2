@@ -41,7 +41,7 @@ class ProductController extends Controller
         $img_name = uniqid() . $img->getClientOriginalName();
         $img->move('upload/', $img_name);
         $product->Img_path = $img_name;
-    //  src =upload/ {{$product->image_path}}
+    //  src =
         $product->name = $request->name;
         $product->description = $request->description;
         $product->price = $request->price;
