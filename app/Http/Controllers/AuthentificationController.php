@@ -34,18 +34,42 @@ class AuthentificationController extends Controller
     $user->password = bcrypt($password);
     $user->save();
 
-    return redirect('/singin');
+    return redirect('/signin');
 
     }
     public function login(Request $request)
     {
-        dd($request);
-        $request->validate([
-            'email' => 'required',
+        // Validate the incoming request
+        $validatedData = $request->validate([
+            'email' => 'required|email',
             'password' => 'required',
         ]);
 
+        // Retrieve input values
+        $email = $validatedData['email'];
+        $password = $validatedData['password'];
 
+        if(empty($email) || empty($password)) {
+            return redirect('/signup');
+        }
 
+        $user = User::where('email', $email)->first();
+
+        if($user) {
+            // Verify the password
+            if(password_verify($password, $user->password)) {
+
+                session(['id' => $user->id]);
+                session(['name' => $user->name]);
+                    dd(session('id'));
+
+                return redirect('/');
+            }
+        }
+
+        return redirect('/signin');
     }
+
+
+
 }
