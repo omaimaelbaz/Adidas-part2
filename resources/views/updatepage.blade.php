@@ -9,7 +9,7 @@
                 <div class="card-header">Update product</div>
 
                 <div class="card-body">
-                    <form method="POST" action="/updateall/{{$data->id}}">
+                    <form method="POST" action="/updateall/{{$data->id}}" enctype="multipart/form-data">
                         @csrf
 
                         <div class="form-group row">
@@ -47,9 +47,9 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="Img_path" class="col-md-4 col-form-label text-md-right">Image</label>
+                            <label for="image" class="col-md-4 col-form-label text-md-right">Image</label>
                             <div class="col-md-6">
-                                <input id="Img_path" type="text" class="form-control" name="Img_path"  value="{{$data->Img_path}}" >
+                                <input id="image" type="file" class="form-control" name="Img_path" value="{{$data->Img_path}}">
                             </div>
                         </div>
 
@@ -59,7 +59,7 @@
                                 <input id="Quantity" type="text" class="form-control" name="Quantity" value="{{$data->Quantity}}">
                             </div>
                         </div>
-
+\
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">

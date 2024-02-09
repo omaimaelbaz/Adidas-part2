@@ -1,4 +1,5 @@
 
+
 @extends('layouts.header')
 
 @section('content')
@@ -28,7 +29,7 @@
             <Td>{{$product->name}}</Td>
             <Td>{{$product->description}}</Td>
             <Td>{{$product->price}}</Td>
-            <Td>{{$product->category_id}}</Td>
+            <Td>{{$product->category->name}}</Td>
             <Td><img src="upload/{{$product->Img_path}}" alt="" width="100px"></Td>
 
             <Td>{{$product->Quantity}}</Td>

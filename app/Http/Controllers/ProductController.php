@@ -11,8 +11,10 @@ class ProductController extends Controller
 {
     public function ProductView()
     {
-        $product = new Product();
-        $allproduct = $product->all();
+        $allproduct= Product::with('category')->get();
+        
+        // $product = new Product();
+        // $allproduct = $product->all();
 
         return view('product', compact('allproduct'));
     }
@@ -82,7 +84,19 @@ class ProductController extends Controller
     ]);
 
     $product = Product::findOrFail($id);
-    $product->update($request->all());
+         // Handle image upload
+         $img = $request->file('Img_path');
+         $img_name = uniqid() . $img->getClientOriginalName();
+         $img->move('upload/', $img_name);
+         $product->Img_path = $img_name;
+         $product->name = $request->name;
+         $product->description = $request->description;
+         $product->price = $request->price;
+         $product->category_id = $request->category_id;
+         $product->Quantity = $request->Quantity;
+
+
+    $product->update();
 
     return redirect('/product');
 }
