@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class AuthentificationController extends Controller
 {
@@ -23,6 +24,18 @@ class AuthentificationController extends Controller
             'email' => 'required',
             'password' => 'required',
         ]);
+        $name = $request->input('name');
+        $email = $request->input('email');
+        $password = $request->input('password');
+         // Create a new user
+    $user = new User();
+    $user->name = $name;
+    $user->email = $email;
+    $user->password = bcrypt($password);
+    $user->save();
+
+    return redirect('/');
+
     }
     public function login(Request $request)
     {
@@ -31,6 +44,8 @@ class AuthentificationController extends Controller
             'email' => 'required',
             'password' => 'required',
         ]);
+
+
 
     }
 }
