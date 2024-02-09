@@ -56,6 +56,14 @@ Route::post('/updateall/{id}',[ProductController::class,'update']);
 Route::get('/signin',[AuthentificationController::class,'signIn']);
 Route::get('/signup',[AuthentificationController::class,'signup']);
 
+//
+Route::post('/register',[AuthentificationController::class,'register']);
+Route::post('/login',[AuthentificationController::class,'login']);
+
+
+
+
+
 
 
 

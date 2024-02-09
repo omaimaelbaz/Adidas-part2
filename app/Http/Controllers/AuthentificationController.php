@@ -16,4 +16,21 @@ class AuthentificationController extends Controller
         return view('signup');
 
     }
+    public function register(Request $request){
+        // dd($request);
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+        ]);
+    }
+    public function login(Request $request)
+    {
+        dd($request);
+        $request->validate([
+            'email' => 'required',
+            'password' => 'required',
+        ]);
+
+    }
 }
