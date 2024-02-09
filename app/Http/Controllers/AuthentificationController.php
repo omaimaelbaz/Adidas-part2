@@ -34,7 +34,7 @@ class AuthentificationController extends Controller
     $user->password = bcrypt($password);
     $user->save();
 
-    return redirect('/');
+    return redirect('/singin');
 
     }
     public function login(Request $request)
