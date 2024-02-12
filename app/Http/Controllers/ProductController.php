@@ -28,7 +28,7 @@ class ProductController extends Controller
     public function insertproduct(Request $request)
     {
         $request->validate([
-            'Img_path' => 'required',
+            'Img_path' => '',
             'name' => 'required',
             'description' => 'required',
             'price' => 'required',
