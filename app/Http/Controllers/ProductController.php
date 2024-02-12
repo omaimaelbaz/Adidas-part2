@@ -12,7 +12,7 @@ class ProductController extends Controller
     public function ProductView()
     {
         $allproduct= Product::with('category')->get();
-        
+
         // $product = new Product();
         // $allproduct = $product->all();
 
@@ -37,13 +37,20 @@ class ProductController extends Controller
         ]);
 
         $product = new Product();
+        $img_name ='default.png';
+        if($request->hasFile('img_path'))
+        {
+            $img = $request->file('Img_path');
+            $img_name = uniqid() . $img->getClientOriginalName();
+            $img->move('upload/', $img_name);
+
+        }
 
         // Handle image upload
-        $img = $request->file('Img_path');
-        $img_name = uniqid() . $img->getClientOriginalName();
-        $img->move('upload/', $img_name);
+
         $product->Img_path = $img_name;
-    //  src =
+
+
         $product->name = $request->name;
         $product->description = $request->description;
         $product->price = $request->price;
