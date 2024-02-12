@@ -28,7 +28,6 @@ class add_permission extends Command
     {
         $routes = Route::getRoutes();
         RouteModel::truncate();
-        // Permission::truncate();
         foreach($routes as $route){
             $uri = $route->uri();
             if(strstr($uri, '_')) continue;
