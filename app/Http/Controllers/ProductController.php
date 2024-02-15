@@ -36,15 +36,12 @@ class ProductController extends Controller
             'Quantity' => 'required',
         ]);
 
+
         $product = new Product();
-        $img_name ='default.png';
-        if($request->hasFile('img_path'))
-        {
+
             $img = $request->file('Img_path');
             $img_name = uniqid() . $img->getClientOriginalName();
             $img->move('upload/', $img_name);
-
-        }
 
         // Handle image upload
 

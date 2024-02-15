@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AuthentificationController;
+use App\Http\Controllers\UserController;
+
 
 
 /*
@@ -59,6 +61,14 @@ Route::get('/signup',[AuthentificationController::class,'signup']);
 //
 Route::post('/register',[AuthentificationController::class,'register']);
 Route::post('/login',[AuthentificationController::class,'login']);
+
+
+// users
+
+Route::get('/user',[UserController::class,'display']);
+
+
+
 
 
 
