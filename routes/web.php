@@ -71,7 +71,7 @@ Route::get('/user',[UserController::class,'display']);
 
 Route::get('/adduser',[UserController::class,'adduserpage']);
 
-Route::get('/isertuser',[UserController::class,'insertuser']);
+Route::post('/isertuser',[UserController::class,'insertuser']);
 
 
 

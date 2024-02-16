@@ -29,19 +29,26 @@ class UserController extends Controller
         return view('adduser',compact('roledata'));
     }
 
+
+
     public function insertuser(Request $request)
     {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email|unique:users',
+            'role_id' => 'required',
+        ]);
 
-       $request ->validate([
-        'name' => 'required',
-        'email' => 'required',
-        'role_id' => 'required',
+        $user = new User();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->role_id = $request->role_id;
+        $user->save();
+        dd($user);
 
-       ]);
-
-       
-
+        return redirect('/user');
     }
+
 
 
 

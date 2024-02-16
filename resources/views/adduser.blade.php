@@ -1,3 +1,4 @@
+{{-- @dd($roledata); --}}
 @extends('layouts.header')
 
 @section('content')
@@ -9,7 +10,7 @@
                 <div class="card-header">Add category</div>
 
                 <div class="card-body">
-                    <form method="POST" action="">
+                    <form method="POST" action="/isertuser">
                         @csrf
 
                         <div class="form-group row">
@@ -24,7 +25,7 @@
                             <label for="email" class="col-md-4 col-form-label text-md-right">email</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="text" class="form-control"  style="max-width: 300px;">
+                                <input id="email" name="email" type="text" class="form-control"  style="max-width: 300px;">
                             </div>
                         </div>
 
@@ -32,7 +33,7 @@
                             <label for="role_id" class="col-md-4 col-form-label text-md-right">RoleId</label>
                             <select name="role_id" id="role_id">
                                 @foreach ($roledata as $items )
-                                <option value="{{$items->role_id}}">{{$items->name}}</option>
+                                <option value="{{$items->id}}">{{$items->name}}</option>
 
 
                                 @endforeach

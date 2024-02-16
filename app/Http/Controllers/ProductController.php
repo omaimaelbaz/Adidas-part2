@@ -80,7 +80,7 @@ class ProductController extends Controller
 {
     $request->validate([
         'Img_path'=>'required',
-        'name' => 'required',
+        'name' => 'required ',
         'description' => 'required',
         'price' => 'required',
         'category_id' => 'required',
