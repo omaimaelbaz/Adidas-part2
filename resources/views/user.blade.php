@@ -28,7 +28,8 @@
             <td>
                 <a href="" class="btn btn-success">Update</a>
 
-                <a href="" class="btn btn-danger">Delete</a>
+                <a href="/deleteuser/{{$item->id}}" class="btn btn-danger">Delete</a>
+                
 
             </td>
           </tr>

@@ -73,6 +73,11 @@ Route::get('/adduser',[UserController::class,'adduserpage']);
 
 Route::post('/isertuser',[UserController::class,'insertuser']);
 
+// delete user
+
+Route::get('/deleteuser/{id}',[UserController::class,'deleteuser']);
+
+
 
 
 

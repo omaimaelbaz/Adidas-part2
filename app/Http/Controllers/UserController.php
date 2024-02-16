@@ -44,9 +44,17 @@ class UserController extends Controller
         $user->email = $request->email;
         $user->role_id = $request->role_id;
         $user->save();
-        dd($user);
+
 
         return redirect('/user');
+    }
+    public function deleteuser($id)
+    {
+            $user = new User();
+            $user->where('id',$id)->delete();
+
+          return redirect('/user');
+
     }
 
 
