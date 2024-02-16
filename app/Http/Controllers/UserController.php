@@ -59,6 +59,7 @@ class UserController extends Controller
     public function updateview($id)
     {
         return view ('userupdate');
+        
     }
 
 
