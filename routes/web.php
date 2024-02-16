@@ -77,6 +77,12 @@ Route::post('/isertuser',[UserController::class,'insertuser']);
 
 Route::get('/deleteuser/{id}',[UserController::class,'deleteuser']);
 
+// update user
+
+Route::get('/updateview{id}',[UserController::class,'updateview']);
+
+
+
 
 
 

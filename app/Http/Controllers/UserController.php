@@ -56,6 +56,10 @@ class UserController extends Controller
           return redirect('/user');
 
     }
+    public function updateview($id)
+    {
+        return view ('userupdate');
+    }
 
 
 
