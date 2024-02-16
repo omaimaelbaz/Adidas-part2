@@ -67,6 +67,19 @@ Route::post('/login',[AuthentificationController::class,'login']);
 
 Route::get('/user',[UserController::class,'display']);
 
+// isert user
+
+Route::get('/adduser',[UserController::class,'adduserpage']);
+
+Route::get('/isertuser',[UserController::class,'insertuser']);
+
+
+
+
+
+
+
+
 
 
 

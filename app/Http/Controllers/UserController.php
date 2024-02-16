@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Role;
 use Illuminate\Http\Request;
 use App\Models\User;
 
@@ -10,7 +11,40 @@ class UserController extends Controller
 {
     public function display()
     {
-        return view('user');
+            // display all users
+
+        $data = User::with('role')->get();
+        // dd($data);
+        return view('user', compact('data'));
 
     }
+
+    // ajouter user
+
+    public  function adduserpage()
+    {
+        $obj= new Role;
+        $roledata =$obj->get();
+        //  dd($roledata);
+        return view('adduser',compact('roledata'));
+    }
+
+    public function insertuser(Request $request)
+    {
+
+       $request ->validate([
+        'name' => 'required',
+        'email' => 'required',
+        'role_id' => 'required',
+
+       ]);
+
+       
+
+    }
+
+
+
+
+
 }

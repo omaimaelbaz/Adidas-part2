@@ -10,17 +10,18 @@
         <th scope="col">Id</th>
         <th scope="col">Name</th>
         <th scope="col">Email</th>
-        <th scope="col">Password</th>
+        <th scope="col">Role_Id</th>
         <th scope="col">action</th>
 
       </tr>
     </thead>
     <tbody>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+        @foreach ($data as $item )
+          <tr>
+            <td>{{$item->id}}</td>
+            <td>{{$item->name}}</td>
+            <td>{{$item->email}}</td>
+            <td>{{$item->role_id}}</td>
 
 
 
@@ -31,6 +32,11 @@
 
             </td>
           </tr>
+
+        @endforeach()
+
+
+
 
 
 
