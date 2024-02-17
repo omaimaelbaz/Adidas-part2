@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AuthentificationController;
+use App\Http\Controllers\UserController;
+
 
 
 /*
@@ -61,11 +63,38 @@ Route::post('/register',[AuthentificationController::class,'register']);
 Route::post('/login',[AuthentificationController::class,'login']);
 
 
+<<<<<<< HEAD
 // serach
 
 Route::get('/category/search',[CategoriesController::class,'search']);
 
 Route::get('/product/search',[ProductController::class,'search']);
+=======
+// users
+
+Route::get('/user',[UserController::class,'display']);
+
+// isert user
+
+Route::get('/adduser',[UserController::class,'adduserpage']);
+
+Route::post('/isertuser',[UserController::class,'insertuser']);
+
+// delete user
+
+Route::get('/deleteuser/{id}',[UserController::class,'deleteuser']);
+
+// update user
+
+Route::get('/updateview{id}',[UserController::class,'updateview']);
+
+
+
+
+
+
+
+>>>>>>> 9d2f3b7a466d68a0c587b6baca0d631f8eca9f22
 
 
 

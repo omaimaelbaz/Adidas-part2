@@ -61,7 +61,7 @@ class AuthentificationController extends Controller
 
                 session(['id' => $user->id]);
                 session(['name' => $user->name]);
-                    dd(session('id'));
+                    // dd(session('id'));
 
                 return redirect('/');
             }
