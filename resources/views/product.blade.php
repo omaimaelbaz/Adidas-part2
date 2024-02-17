@@ -4,6 +4,15 @@
 
 @section('content')
 
+
+
+
+
+<form id="searchForm" action='/product/search' method="GET" class="search-container">
+    <input type="text" id="searchInput" name="search" class="form-control" style="max-width: 22%;" placeholder="Search by product name..."> <br>
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
+
 <table class="table table-hover">
     <a href="/addproduct" class="btn btn-primary">Add Product</a>
     <thead>

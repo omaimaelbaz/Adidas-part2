@@ -108,5 +108,15 @@ class ProductController extends Controller
     return redirect('/product');
 }
 
+public function search(Request $request)
+{
+    $searchQuery = $request->input('search');
 
+    $allproduct = Product::where('name', 'like', '%' . $searchQuery . '%')->get();
+
+    return view('product', compact('allproduct'));
 }
+}
+
+
+

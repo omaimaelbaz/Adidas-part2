@@ -61,6 +61,19 @@ Route::post('/register',[AuthentificationController::class,'register']);
 Route::post('/login',[AuthentificationController::class,'login']);
 
 
+// serach
+
+Route::get('/category/search',[CategoriesController::class,'search']);
+
+Route::get('/product/search',[ProductController::class,'search']);
+
+
+
+
+
+
+
+
 
 
 

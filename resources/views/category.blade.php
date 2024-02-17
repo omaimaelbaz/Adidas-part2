@@ -1,8 +1,15 @@
-
 @extends('layouts.header')
 
 @section('content')
 
+<!-- Search Form -->
+<form action='/category/search' method="GET">
+    <input type="text" name="search" placeholder=" category name...">
+    <br> <br>
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
+
+<!-- Category Table -->
 <table class="table table-hover">
     <a href="/addcategory" class="btn btn-primary">Add Category</a>
     <thead>
@@ -20,17 +27,11 @@
 
             <td>
                 <a href="/updatecategory/{{$item->id}}" class="btn btn-success">Update</a>
-
                 <a href="/supcategory/{{$item->id}}" class="btn btn-danger">Delete</a>
-
             </td>
           </tr>
-
         @endforeach
-
-
     </tbody>
-  </table>
-
+</table>
 
 @endsection
