@@ -94,7 +94,7 @@ Route::get('/updateview{id}',[UserController::class,'updateview']);
 
 
 
->>>>>>> 9d2f3b7a466d68a0c587b6baca0d631f8eca9f22
+
 
 
 
