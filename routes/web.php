@@ -61,16 +61,7 @@ Route::get('/signup',[AuthentificationController::class,'signup']);
 //
 Route::post('/register',[AuthentificationController::class,'register']);
 Route::post('/login',[AuthentificationController::class,'login']);
-
-
-<<<<<<< HEAD
-// serach
-
-Route::get('/category/search',[CategoriesController::class,'search']);
-
-Route::get('/product/search',[ProductController::class,'search']);
-=======
-// users
+//users
 
 Route::get('/user',[UserController::class,'display']);
 
@@ -87,6 +78,14 @@ Route::get('/deleteuser/{id}',[UserController::class,'deleteuser']);
 // update user
 
 Route::get('/updateview{id}',[UserController::class,'updateview']);
+
+//serach
+
+Route::get('/category/search',[CategoriesController::class,'search']);
+
+Route::get('/product/search',[ProductController::class,'search']);
+
+
 
 
 
