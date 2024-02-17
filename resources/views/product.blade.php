@@ -5,13 +5,44 @@
 @section('content')
 
 
-
-
+@if(isset($searchQuery))
+<div class="alert alert-info" role="alert">
+    Your search results for: "<strong>{{ $searchQuery }}</strong>"
+</div>
+@endif
 
 <form id="searchForm" action='/product/search' method="GET" class="search-container">
-    <input type="text" id="searchInput" name="search" class="form-control" style="max-width: 22%;" placeholder="Search by product name..."> <br>
+    <div class="row">
+        <div class="col-md-3">
+            <label for="searchInput">Search by Product Name:</label>
+            <input type="text" id="searchInput" name="search" class="form-control" placeholder="Search by product name...">
+        </div>
+        <div class="col-md-3">
+            <label for="price">Price Range:</label>
+            <select name="price" id="price" class="form-control">
+                <option value="">Select Price Range</option>
+                <option value="0-50">0 - 50</option>
+                <option value="51-100">51 - 100</option>
+                <option value="101-200">101 - 200</option>
+            </select>
+        </div>
+        <div class="col-md-3">
+            <label for="quantity">Quantity:</label>
+            <select name="quantity" id="quantity" class="form-control">
+                <option value="">Select Quantity</option>
+                <option value="0-10">0 - 10</option>
+                <option value="11-50">11 - 50</option>
+                <option value="51-100">51 - 100</option>
+            </select>
+        </div>
+    </div>
+    <br>
     <button type="submit" class="btn btn-primary">Search</button>
 </form>
+
+
+
+
 
 <table class="table table-hover">
     <a href="/addproduct" class="btn btn-primary">Add Product</a>
