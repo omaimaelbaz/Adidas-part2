@@ -105,6 +105,10 @@
 
     </tbody>
   </table>
+  {{ $allproduct->links() }}
+
 
 
 @endsection
+
+

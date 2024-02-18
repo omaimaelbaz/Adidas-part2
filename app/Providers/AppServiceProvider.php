@@ -2,7 +2,10 @@
 
 namespace App\Providers;
 
+use Illuminate\Contracts\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
+use PHPUnit\Event\TestRunner\BootstrapFinished;
+use PHPUnit\TextUI\Configuration\ExtensionBootstrap;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -19,6 +22,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        // Paginator::useBootstrapFive();
     }
 }

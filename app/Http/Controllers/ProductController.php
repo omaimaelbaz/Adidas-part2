@@ -11,7 +11,7 @@ class ProductController extends Controller
 {
     public function ProductView()
     {
-        $allproduct= Product::with('category')->get();
+        $allproduct= Product::with('category')->paginate(2);;
 
         // $product = new Product();
         // $allproduct = $product->all();
@@ -127,15 +127,15 @@ public function search(Request $request)
         [$minQuantity, $maxQuantity] = explode('-', $quantityRange);
         $query->whereBetween('quantity', [$minQuantity, $maxQuantity]);
     }
+    if (!$searchQuery && !$priceRange && !$quantityRange) {
+        $searchQuery = '';
+        $priceRange = '';
+        $quantityRange = '';
+    }
 
-   
+    $allproduct = $query->paginate(3);
 
-
-
-
-    $allProducts = $query->paginate(3);
-
-    return view('product', compact('allProducts', 'searchQuery', 'priceRange', 'quantityRange'));
+    return view('product', compact('allproduct', 'searchQuery', 'priceRange', 'quantityRange'));
 }
 
 

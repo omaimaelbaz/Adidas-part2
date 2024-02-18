@@ -12,7 +12,7 @@ class CategoriesController extends Controller
     public function categoryView()
         {
             $category = new Categories();
-            $data =$category->get();
+            $data =$category->paginate(2);
 
             return view('category',compact('data'));
         }
