@@ -119,6 +119,13 @@ public function search(Request $request)
               ->orWhere('description', 'like', '%' . $searchQuery . '%');
     }
 
+    if ($priceRange) {
+        [$minPrice, $maxPrice] = explode('-', $priceRange);
+        $query->whereBetween('price', [$minPrice, $maxPrice]);
+    }
+
+   
+
 
     $allProducts = $query->paginate(3);
 
