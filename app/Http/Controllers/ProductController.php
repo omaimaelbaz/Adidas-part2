@@ -123,8 +123,14 @@ public function search(Request $request)
         [$minPrice, $maxPrice] = explode('-', $priceRange);
         $query->whereBetween('price', [$minPrice, $maxPrice]);
     }
+    if ($quantityRange) {
+        [$minQuantity, $maxQuantity] = explode('-', $quantityRange);
+        $query->whereBetween('quantity', [$minQuantity, $maxQuantity]);
+    }
 
    
+
+
 
 
     $allProducts = $query->paginate(3);
