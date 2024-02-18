@@ -27,25 +27,23 @@ class AuthentificationController extends Controller
         $name = $request->input('name');
         $email = $request->input('email');
         $password = $request->input('password');
-         // Create a new user
     $user = new User();
     $user->name = $name;
     $user->email = $email;
+    $user->role_id = 2;
     $user->password = bcrypt($password);
     $user->save();
 
-    return redirect('/signin');
+    return ("welcome Users");
 
     }
     public function login(Request $request)
     {
-        // Validate the incoming request
         $validatedData = $request->validate([
             'email' => 'required|email',
             'password' => 'required',
         ]);
 
-        // Retrieve input values
         $email = $validatedData['email'];
         $password = $validatedData['password'];
 
@@ -56,10 +54,11 @@ class AuthentificationController extends Controller
         $user = User::where('email', $email)->first();
 
         if($user) {
-            // Verify the password
             if(password_verify($password, $user->password)) {
 
                 session(['id' => $user->id]);
+                session(['role_id' => $user->role_id]);
+                //    dd(session('role_id'));
                 session(['name' => $user->name]);
                     // dd(session('id'));
 
@@ -70,6 +69,10 @@ class AuthentificationController extends Controller
         return redirect('/signin');
     }
 
+    public function resetpassword()
+    {
+        return view('forgot-password');
+    }
 
 
 }
