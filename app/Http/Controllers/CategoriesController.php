@@ -62,10 +62,8 @@ public function search(Request $request)
 {
     $searchTerm = $request->input('search');
 
-    // Perform search operation on your category model
     $data = Categories::where('name', 'like', '%' . $searchTerm . '%')->get();
 
-    // Pass the search results to the view
     return view('category', compact('data'));
 }
 
