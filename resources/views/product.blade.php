@@ -5,12 +5,6 @@
 @section('content')
 
 
-@if(isset($searchQuery))
-<div class="alert alert-info" role="alert">
-    Your search results for: "<strong>{{ $searchQuery }}</strong>"
-</div>
-@endif
-
 <form id="searchForm" action='/product/search' method="GET" class="search-container">
     <div class="row">
         <div class="col-md-3">
@@ -35,10 +29,32 @@
                 <option value="51-100">51 - 100</option>
             </select>
         </div>
+        <div class="col-md-3" >
+            <label class="invisible">Search</label>
+            <button type="submit" class="btn btn-primary">Search</button>
+        </div>
     </div>
-    <br>
-    <button type="submit" class="btn btn-primary">Search</button>
 </form>
+<style>
+    .search-container {
+        background-color: #f9f9f9;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .search-container button {
+        margin-top: 30px;
+    }
+</style>
+
+
+@if(isset($searchQuery))
+<div class="alert " role="alert">
+    Your search results for: "<strong>{{ $searchQuery }}</strong>"
+</div>
+@endif
+
+
 
 
 

@@ -105,15 +105,6 @@ class ProductController extends Controller
     return redirect('/product');
 }
 
-// public function search(Request $request)
-// {
-//     $searchQuery = $request->input('search');
-
-//     $allproduct = Product::where('name', 'like', '%' . $searchQuery . '%')->get();
-
-//     return view('product', compact('allproduct', 'searchQuery'));
-// }
-
 
 public function search(Request $request)
 {
@@ -123,28 +114,15 @@ public function search(Request $request)
 
     $query = Product::query();
 
-    // Apply search query
-
-
     if ($searchQuery) {
-        $query->where('name', 'like', '%' . $searchQuery . '%');
+        $query->where('name', 'like', '%' . $searchQuery . '%')
+              ->orWhere('description', 'like', '%' . $searchQuery . '%');
     }
 
-    //  price range filter
-    if ($priceRange) {
-        $priceRangeArray = explode('-', $priceRange);
-        $query->whereBetween('price', [(int)$priceRangeArray[0], (int)$priceRangeArray[1]]);
-    }
 
-    // qunatiyyyy filter
-    if ($quantityRange) {
-        $quantityRangeArray = explode('-', $quantityRange);
-        $query->whereBetween('quantity', [(int)$quantityRangeArray[0], (int)$quantityRangeArray[1]]);
-    }
+    $allProducts = $query->paginate(3);
 
-    $allproduct = $query->get();
-
-    return view('product', compact('allproduct', 'searchQuery'));
+    return view('product', compact('allProducts', 'searchQuery', 'priceRange', 'quantityRange'));
 }
 
 
