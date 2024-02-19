@@ -21,75 +21,75 @@ use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
     return view('index');
-})->middleware('permission');
+});
 Route::get('/home', function () {
     return view('home');
-})->middleware('permission');
+});
 
 
 // category table
 
-Route::get('/category',[CategoriesController::class,'categoryView'])->middleware('permission');
+Route::get('/category',[CategoriesController::class,'categoryView']);
 
 // add category
-Route::get('/addcategory',[CategoriesController::class,'addformeCategory'])->middleware('permission');
-Route::post('/insertcategory',[CategoriesController::class,'insertCategory'])->middleware('permission');
+Route::get('/addcategory',[CategoriesController::class,'addformeCategory']);
+Route::post('/insertcategory',[CategoriesController::class,'insertCategory']);
 // delete category
-Route::get('/supcategory/{id}',[CategoriesController::class,'deleteCategory'])->middleware('permission');
+Route::get('/supcategory/{id}',[CategoriesController::class,'deleteCategory']);
 // update category
-Route::get('/updatecategory/{id}',[CategoriesController::class,'updatepage'])->middleware('permission');
+Route::get('/updatecategory/{id}',[CategoriesController::class,'updatepage']);
 Route::post('/update/{id}',[CategoriesController::class,'updatecategory']);
 
 
 //------- product table -----//
-Route::get('/product',[ProductController::class,'ProductView'])->middleware('permission');
+Route::get('/product',[ProductController::class,'ProductView']);
 
 // add product
-Route::get('/addproduct',[ProductController::class,'addproductpage'])->middleware('permission');
-Route::post('/insertproduct',[ProductController::class,'insertproduct'])->middleware('permission');
+Route::get('/addproduct',[ProductController::class,'addproductpage']);
+Route::post('/insertproduct',[ProductController::class,'insertproduct']);
 
 // delete product
-Route::get('/deleteproduct/{id}',[ProductController::class,'deleteproduct'])->middleware('permission');
+Route::get('/deleteproduct/{id}',[ProductController::class,'deleteproduct']);
 
 // update product
 
-Route::get('/updateproduct/{id}',[ProductController::class,'updatepage'])->middleware('permission');
-Route::post('/updateall/{id}',[ProductController::class,'update'])->middleware('permission');
+Route::get('/updateproduct/{id}',[ProductController::class,'updatepage']);
+Route::post('/updateall/{id}',[ProductController::class,'update']);
 
 // auth
 
-Route::get('/signin',[AuthentificationController::class,'signIn'])->middleware('permission');
-Route::get('/signup',[AuthentificationController::class,'signup'])->middleware('permission');
+Route::get('/signin',[AuthentificationController::class,'signIn']);
+Route::get('/signup',[AuthentificationController::class,'signup']);
 
 //
-Route::post('/register',[AuthentificationController::class,'register'])->middleware('permission');
-Route::post('/login',[AuthentificationController::class,'login'])->middleware('permission');
+Route::post('/register',[AuthentificationController::class,'register']);
+Route::post('/login',[AuthentificationController::class,'login']);
 //users
 
-Route::get('/user',[UserController::class,'display'])->middleware('permission');
+Route::get('/user',[UserController::class,'display']);
 
 // isert user
 
-Route::get('/adduser',[UserController::class,'adduserpage'])->middleware('permission');
+Route::get('/adduser',[UserController::class,'adduserpage']);
 
-Route::post('/isertuser',[UserController::class,'insertuser'])->middleware('permission');
+Route::post('/isertuser',[UserController::class,'insertuser']);
 
 // delete user
 
-Route::get('/deleteuser/{id}',[UserController::class,'deleteuser'])->middleware('permission');
+Route::get('/deleteuser/{id}',[UserController::class,'deleteuser']);
 
 // update user
 
-Route::get('/updateview{id}',[UserController::class,'updateview'])->middleware('permission');
+Route::get('/updateview{id}',[UserController::class,'updateview']);
 
 //serach
 
-Route::get('/category/search',[CategoriesController::class,'search'])->middleware('permission');
+Route::get('/category/search',[CategoriesController::class,'search']);
 
-Route::get('/product/search',[ProductController::class,'search'])->middleware('permission');
+Route::get('/product/search',[ProductController::class,'search']);
 
 // reset password
-Route::get('/forgotpassword',[AuthentificationController::class,'resetpassword'])->middleware('permission');
+Route::get('/forgotpassword',[AuthentificationController::class,'resetpassword']);
 
 
 

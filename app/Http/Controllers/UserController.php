@@ -11,7 +11,7 @@ class UserController extends Controller
 {
     public function display()
     {
-            // display all users
+        // display all users
 
         $data = User::with('role')->get();
         // dd($data);
@@ -59,7 +59,7 @@ class UserController extends Controller
     public function updateview($id)
     {
         return view ('userupdate');
-        
+
     }
 
 
