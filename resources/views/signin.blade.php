@@ -109,23 +109,29 @@
                   <p class="mb-0">Enter your email and password to sign in</p>
                 </div>
                 <div class="card-body">
-                  <form role="form" method="POST" action="/login">
-                    @csrf
-                    <label>Email</label>
-                    <div class="mb-3">
-                      <input type="email" class="form-control"  name ="email"placeholder="Email" aria-label="Email" >
-                    </div>
-                    <label>Password</label>
-                    <div class="mb-3">
-                      <input type="password" class="form-control" name="password" placeholder="Password" aria-label="Password">
-                    <div class="form-check form-switch">
-                      <input class="form-check-input" type="checkbox" id="rememberMe" checked="">
-                      <label class="form-check-label" for="rememberMe">Remember me</label>
-                    </div>
-                    <div class="text-center">
-                      <button type="submit" class="btn bg-gradient-info w-100 mt-4 mb-0">Sign in</button>
-                    </div>
-                  </form>
+                    <form role="form" method="POST" action="/login">
+                        @csrf
+                        <label>Email</label>
+                        <div class="mb-3">
+                            <input type="email" class="form-control" name="email" placeholder="Email" aria-label="Email">
+                        </div>
+                        <label>Password</label>
+                        <div class="mb-3">
+                            <input type="password" class="form-control" name="password" placeholder="Password" aria-label="Password">
+                        </div>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="rememberMe" checked="">
+                            <label class="form-check-label" for="rememberMe">Remember me</label>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn bg-gradient-info w-100 mt-4 mb-0">Sign in</button>
+                        </div>
+                        <div class="text-center mt-3">
+                            <a href="/forgot-password">Forgot Password?</a>
+                        </div>
+                    </form>
+
+
                 </div>
                 <div class="card-footer text-center pt-0 px-lg-2 px-1">
                   <p class="mb-4 text-sm mx-auto">

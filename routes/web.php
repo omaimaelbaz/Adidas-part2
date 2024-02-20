@@ -89,7 +89,7 @@ Route::get('/category/search',[CategoriesController::class,'search']);
 Route::get('/product/search',[ProductController::class,'search']);
 
 // reset password
-Route::get('/forgotpassword',[AuthentificationController::class,'resetpassword']);
+Route::get('/forgot-password',[AuthentificationController::class,'resetpassword']);
 
 
 
